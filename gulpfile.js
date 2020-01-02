@@ -19,7 +19,7 @@ const reload = browserSync.reload;
 // Copy all HTML files
 gulp.task('copyHTML' , async function(){
     gulp.src('src/*.html')
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/'));
 });
 
 // Minify CSS
@@ -39,7 +39,12 @@ gulp.task('imgminify', async function(){
 // Watch and Browser Sync
 gulp.task('watch', function() {
     browserSync.init({
-        proxy: "http://0.0.0.0:8000/dist/"
+        injectChanges: true,
+        proxy: "http://0.0.0.0:8000/dist/",
+        ghostMode: {
+            clicks: false,
+            scroll: false
+        }
     });
     
     gulp.watch('src/*.html', gulp.series('copyHTML'));
@@ -48,3 +53,5 @@ gulp.task('watch', function() {
 
     gulp.watch("dist/**/**").on("change", reload);
 });
+
+gulp.task('default', gulp.parallel('watch'));
