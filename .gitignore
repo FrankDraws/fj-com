@@ -57,7 +57,7 @@ Thumbs.d
 
 # Ignore files in this dir except ! - FJQ #
 ###############
-!.gitignore
+.gitignore
 # !directoryName/
 ~/.bash_profile
 package-lock.json
