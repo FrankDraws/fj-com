@@ -60,3 +60,4 @@ Thumbs.d
 !.gitignore
 # !directoryName/
 ~/.bash_profile
+package-lock.json
